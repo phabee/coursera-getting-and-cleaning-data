@@ -32,4 +32,11 @@ A README-File, that explains the analysis files in a clear and understandable ma
 The project requirement description being subject to this project.
 
 ## License & Reference to Publications
-The use of the data involved in this project 
+The use of the data involved in this project requires referencing the following publication:
+
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. A Public Domain Dataset for Human Activity Recognition Using Smartphones. 21th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning, ESANN 2013. Bruges, Belgium 24-26 April 2013. 
+
+For further details please refer to the following links:
+- http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.names
+- http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+- https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
