@@ -16,11 +16,14 @@ This is the r-script which takes the data and performs the following steps:
 1.  Appropriately labels the data set with descriptive variable names.
 1.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-### A 1st tidy Data Set 'tidy_data_set_1.csv'
+### First tidy Data Set 'tidy_data_set_1.csv'
 A first tidy data set produced by the 'run_analysis.R' - script, based on the steps 1 through 4.
 
-### A 2nd tidy Data Set 'tidy_data_set_2.csv'
+### Second tidy Data Set 'tidy_data_set_2.csv'
 A second, independent tidy data set with the average of each variable for each activity and each subject.
 
-### A Codebook named 'CodeBook.md'
+### The Codebook named 'CodeBook.md'
 This is the code book that describes the variables, the data, and any transformations or work that were performed to clean up the data. It modifies and updates the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
+
+### This README.md
+A README-File, that explains the analysis files in a clear and understandable manner.
