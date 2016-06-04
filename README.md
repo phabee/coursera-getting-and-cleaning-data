@@ -30,3 +30,6 @@ A README-File, that explains the analysis files in a clear and understandable ma
 
 ### The File 'project_requirements.md'
 The project requirement description being subject to this project.
+
+## License & Reference to Publications
+The use of the data involved in this project 
