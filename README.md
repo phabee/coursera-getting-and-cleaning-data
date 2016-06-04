@@ -25,5 +25,8 @@ A second, independent tidy data set with the average of each variable for each a
 ### The Codebook named 'CodeBook.md'
 This is the code book that describes the variables, the data, and any transformations or work that were performed to clean up the data. It modifies and updates the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
 
-### This README.md
+### This 'README.md' File
 A README-File, that explains the analysis files in a clear and understandable manner.
+
+### The File 'project_requirements.md'
+The project requirement description being subject to this project.
