@@ -1,7 +1,6 @@
 # Coursera 'Getting and Cleaning Data'-Project CodeBook
 
-This Codebook describes the tidy dataset created by the 'run_analysis.R' script and stored in the 'data/tidy_data_set.csv' file.
-
+This Codebook describes the tidy dataset created by the 'run_analysis.R' script and stored in the 'data/tidy_data_set.csv' file. 
 
 ## Data Source
 The data used for this project has been provided here:
@@ -11,11 +10,24 @@ Further information is available here:
 http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.names
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-License information is provided at the end of this document.
+This codepage document extends the codepage document contained in the README.txt in the above mentioned zip. License information is provided at the end of this document.
+
+## The Processing Steps
+To obtain this Dataset, the following steps have been performed on the Source Data provided above:
+
+1.  Merge the training and the test sets to create one data set.
+1.  Extract only the measurements on the mean and standard deviation for each measurement.
+1.  Use descriptive activity names to name the activities in the data set
+1.  Appropriately label the data set with descriptive variable names.
+1.  From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+You can find more detailled documentation on how these steps are performed from the source-code in the script 'run_analysis.R'.
 
 ## The variables
-* subject
-* activity
+The tidy dataset is provided in the 'data'-Folder and named 'tidy_data_set.csv'. It contains the following variables:
+
+* subject: An Integer from 1:30 representing the person, wearing the mobile device.
+* activity: One of 6 factors representing an activity.
 * avg-tbodyacc-mean-x
 * avg-tbodyacc-mean-y
 * avg-tbodyacc-mean-z
@@ -95,6 +107,8 @@ License information is provided at the end of this document.
 * avg-fbodybodygyrojerkmag-mean
 * avg-fbodybodygyrojerkmag-std
 * avg-fbodybodygyrojerkmag-meanfreq
+
+Since the values have been aggregated and grouped by subject/activity, the labels have been extended with the 'avg'-prefix to the former original name to express, that the resulting values have been avg'ed.
 
 ## License of the data involved
 The use of the data involved in this project requires referencing the following publication:
