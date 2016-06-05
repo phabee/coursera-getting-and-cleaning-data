@@ -46,9 +46,9 @@ washlabels <- function(labels) {
 #############################################################################
 
 # set working directory
-homedir <- "/home/phabi/Desktop/coursera/cleaning data/project"
-datadir <- paste0(homedir, "/data")
-setwd(homedir)
+# homedir <- "/home/phabi/Desktop/coursera/cleaning data/project"
+# setwd(homedir)
+datadir <- "data"
 
 # make data directory, if not existing
 if (!dir.exists(datadir)) {
@@ -124,4 +124,4 @@ newdat <- alldata %>% group_by(subject, activity) %>% summarize_each(funs(mean))
 # nicely rename the columns to add 'avg'-prefix
 colnames(newdat)[3:81] <- paste0('avg-',colnames(newdat))[3:81]
 # write alldata
-write.table(newdat, file = "./data/tidy_data_set.csv", row.names = FALSE, col.names = TRUE)
+write.table(newdat, file = paste0(datadir, "/tidy_data_set.csv"), row.names = FALSE, col.names = TRUE)
