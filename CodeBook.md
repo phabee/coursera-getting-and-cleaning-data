@@ -113,12 +113,12 @@ Since the values have been aggregated and grouped by subject/activity, the label
 ## The activity Labels
 The activity Labels can have one of the following values:
 
-1 WALKING
-1 WALKING_UPSTAIRS
-1 WALKING_DOWNSTAIRS
-1 SITTING
-1 STANDING
-1 LAYING
+1.  WALKING
+1.  WALKING_UPSTAIRS
+1.  WALKING_DOWNSTAIRS
+1.  SITTING
+1.  STANDING
+1.  LAYING
 
 ## License of the data involved
 The use of the data involved in this project requires referencing the following publication:
