@@ -41,37 +41,6 @@ washlabels <- function(labels) {
   lbl
 }
 
-# domerge: merge the three csv's provided by rownum and return a df 
-#          with named columns
-domerge <- function(subjFile, XFile, XLablesFile, yFile) {
-  subj <- read.table(file = subjFile, header = FALSE, strip.white = TRUE)
-  # name column
-  colnames(subj) <- 'subj'
-  # apply rownumber to subject
-  subj <- addidcol(subj)
-  # read X
-  X <- read.table(file = XFile, header = FALSE, strip.white = TRUE)
-  # read column names
-  lbls <- read.table(file = XLablesFile, header = FALSE, strip.white = TRUE)
-  lbls <- washlabels(lbls[,2])
-  # name columns
-  colnames(X) <- lbls
-  # apply rownumber to X
-  X <- addidcol(X)
-  # read y
-  y <- read.table(file = yFile, header = FALSE, strip.white = TRUE)
-  # name column
-  colnames(y) <- 'activity'
-  # apply rownumber to y
-  y <- addidcol(y)
-  # now merge subject and X by rownumber (id)
-  tmp <- merge(subj, X, by.x = "id", by.y = "id")
-  # now merge tmp and y by rownumber (id)
-  tmp <- merge(tmp, y, by.x = "id", by.y = "id")
-  # remove first id column, return result
-  tmp[,2:ncol(tmp)]  
-}
-
 #############################################################################
 # script start / entry point
 #############################################################################
@@ -87,32 +56,58 @@ if (!dir.exists(datadir)) {
 }
 
 # 1) merge training and test set to create one dataset
-train <- domerge("./UCI HAR Dataset/train/subject_train.txt", 
-                 "./UCI HAR Dataset/train/X_train.txt", 
-                 "./UCI HAR Dataset/features.txt", 
-                 "./UCI HAR Dataset/train/y_train.txt")
+# internal function to load and merge data of either train/test set
+loadmerge <- function(subjFile, XFile, XLabFile, yFile) {
+#  subjFile <- "./UCI HAR Dataset/train/subject_train.txt"
+#    XFile <- "./UCI HAR Dataset/train/X_train.txt"
+#    XLabFile <- "./UCI HAR Dataset/features.txt"
+#    yFile <- "./UCI HAR Dataset/train/y_train.txt"
 
-test <- domerge("./UCI HAR Dataset/test/subject_test.txt", 
-                "./UCI HAR Dataset/test/X_test.txt", 
-                "./UCI HAR Dataset/features.txt", 
-                "./UCI HAR Dataset/test/y_test.txt")
+    # read files into dataframes, apply name 'subject'
+  subj <- read.table(file = subjFile, header = FALSE, strip.white = TRUE)
+  colnames(subj) <- 'subject'
+  # read X and apply colnames from feature file
+  X <- read.table(file = XFile, header = FALSE, strip.white = TRUE)
+  Xlab <- read.table(file = XLabFile, header = FALSE, strip.white = TRUE)
+  colnames(X) <- Xlab[,2]
+  y <- read.table(file = yFile, header = FALSE, strip.white = TRUE)
+  colnames(y) <- 'activity'
+  ?data.frame
+  # add 'id' column containing rownum to all dataframes
+  subj <- addidcol(subj)
+  X <- addidcol(X)
+  y <- addidcol(y)
+  # now merge them into one dataframe
+  dfList <- list(subj, X, y)
+  all <- join_all(dfList, "id")
+  all
+}
+
+train <- loadmerge(
+  "./UCI HAR Dataset/train/subject_train.txt",
+  "./UCI HAR Dataset/train/X_train.txt",
+  "./UCI HAR Dataset/features.txt",
+  "./UCI HAR Dataset/train/y_train.txt"
+)
+
+test <- loadmerge(
+  "./UCI HAR Dataset/test/subject_test.txt",
+  "./UCI HAR Dataset/test/X_test.txt",
+  "./UCI HAR Dataset/features.txt",
+  "./UCI HAR Dataset/test/y_test.txt"
+)
 
 # append training- and testdata
 alldata <- rbind(train, test)
 # free memory
 rm(train, test)
-# write alldata
-write.table(alldata, file = "./data/alldata.csv", row.names = FALSE, col.names = TRUE)
 
 # 2) Extract only the measurements on the mean and standard deviation for each measurement.
-# fist build vector containing the column-names having 'mean' or 'std' 
-colnames(alldata)
 # construct column-selection vector:
 # select only variables containing mean, std, and keep activity & subject
 colsel <- grep("mean|std|activity|subj", colnames(alldata), value = TRUE)
 # now build new reduced dataset with the column-selection 
 alldata <- alldata[,colsel]
-dim(alldata)
 
 # 3) Use descriptive activity names to name the activities in the data set
 alldata$activity <- factor(alldata$activity)
@@ -122,9 +117,18 @@ alldata$activity <- mapvalues(alldata$activity, from = c("1", "2", "3", "4", "5"
                             to = c("WALKING", "WALKING_UPSTAIRS", 
                                    "WALKING_DOWNSTAIRS", "SITTING", 
                                    "STANDING", "LAYING"))
+
 # 4) Appropriately labels the data set with descriptive variable names
+names(alldata) <- washlabels(names(alldata))
+# write alldata
+write.table(alldata, file = "./data/tidy_data_set_1.csv", row.names = FALSE, col.names = TRUE)
 
-# now do some cleaning tasks: convert activity to understandable factors
-one$activity <- as.factor(one$activity)
-
-write.table(one, file = "completeData.csv", row.names = FALSE, col.names = TRUE)
+# 5) From the data set in step 4, creates a second, independent tidy data set 
+#    with the average of each variable for each activity and each subject.
+library(dplyr)
+# now calculate mean on every variable, grouped by subject / activity
+newdat <- alldata %>% group_by(subject, activity) %>% summarize_each(funs(mean))
+# nicely rename the columns to add 'avg'-prefix
+colnames(newdat)[3:81] <- paste0('avg-',colnames(newdat))[3:81]
+# write alldata
+write.table(newdat, file = "./data/tidy_data_set_2.csv", row.names = FALSE, col.names = TRUE)
