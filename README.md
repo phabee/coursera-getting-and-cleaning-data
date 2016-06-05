@@ -8,7 +8,7 @@ The purpose of this README.md is to explain how all of the scripts work and how 
 This section provides the description of the files within this repo.
 
 ### The R-Script 'run_analysis.R'
-This is the r-script which takes the data and performs the following steps:
+The script assumes, that the zip-content of the link provided at the bottom of this file has been decompressed and the 'UCI HAR Dataset' Folder is present in the working directory. The script reads then performs the following steps as required. It:
 
 1.  Merges the training and the test sets to create one data set.
 1.  Extracts only the measurements on the mean and standard deviation for each measurement.
@@ -16,7 +16,7 @@ This is the r-script which takes the data and performs the following steps:
 1.  Appropriately labels the data set with descriptive variable names.
 1.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-You can find more detailled documentation on how these steps are performed from the code-source.
+Finally, the resulting tidy dataset is stored in the 'data'-folder within a text-file named 'tidy_data_set.txt'. You can find more detailled documentation on how these steps are performed from the code-source.
 
 ### The 'data'-Folder
 The folder containing the final tidy data set named 'tidy_data_set.csv' produced by the 'run_analysis.R' - script, based on the above mentioned steps 1 through 5.
