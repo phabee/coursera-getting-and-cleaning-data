@@ -2,7 +2,7 @@
 This project is related to the Coursera Course for the specialization in Data Science at Hopkins University and is the final assignment within the 3rd course 'Getting-And-Cleaning Data' out of ten to achieve the Data Science specialization. See the file project_requirements.md to get the original description of requirements related to this project.
 
 ## Purpose of this README.md
-The purpose of this Readme.md is to explain how all of the scripts work and how they are connected.
+The purpose of this README.md is to explain how all of the scripts work and how they are connected.
 
 ## File-Descriptions
 This section provides the description of the files within this repo.
@@ -16,11 +16,10 @@ This is the r-script which takes the data and performs the following steps:
 1.  Appropriately labels the data set with descriptive variable names.
 1.  From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-### First tidy Data Set 'tidy_data_set_1.csv'
-A first tidy data set produced by the 'run_analysis.R' - script, based on the steps 1 through 4.
+You can find more detailled documentation on how these steps are performed from the code-source.
 
-### Second tidy Data Set 'tidy_data_set_2.csv'
-A second, independent tidy data set with the average of each variable for each activity and each subject.
+### The final tidy Data Set 'tidy_data_set.csv'
+The tidy data set produced by the 'run_analysis.R' - script, based on the above mentioned steps 1 through 5.
 
 ### The Codebook named 'CodeBook.md'
 This is the code book that describes the variables, the data, and any transformations or work that were performed to clean up the data. It modifies and updates the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
