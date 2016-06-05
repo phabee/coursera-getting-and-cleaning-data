@@ -11,11 +11,90 @@ Further information is available here:
 http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.names
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-License information is provided at the end of this document.s
+License information is provided at the end of this document.
 
-
-
-modifies and updates the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
+## The variables
+* subject
+* activity
+* avg-tbodyacc-mean-x
+* avg-tbodyacc-mean-y
+* avg-tbodyacc-mean-z
+* avg-tbodyacc-std-x
+* avg-tbodyacc-std-y
+* avg-tbodyacc-std-z
+* avg-tgravityacc-mean-x
+* avg-tgravityacc-mean-y
+* avg-tgravityacc-mean-z
+* avg-tgravityacc-std-x
+* avg-tgravityacc-std-y
+* avg-tgravityacc-std-z
+* avg-tbodyaccjerk-mean-x
+* avg-tbodyaccjerk-mean-y
+* avg-tbodyaccjerk-mean-z
+* avg-tbodyaccjerk-std-x
+* avg-tbodyaccjerk-std-y
+* avg-tbodyaccjerk-std-z
+* avg-tbodygyro-mean-x
+* avg-tbodygyro-mean-y
+* avg-tbodygyro-mean-z
+* avg-tbodygyro-std-x
+* avg-tbodygyro-std-y
+* avg-tbodygyro-std-z
+* avg-tbodygyrojerk-mean-x
+* avg-tbodygyrojerk-mean-y
+* avg-tbodygyrojerk-mean-z
+* avg-tbodygyrojerk-std-x
+* avg-tbodygyrojerk-std-y
+* avg-tbodygyrojerk-std-z
+* avg-tbodyaccmag-mean
+* avg-tbodyaccmag-std
+* avg-tgravityaccmag-mean
+* avg-tgravityaccmag-std
+* avg-tbodyaccjerkmag-mean
+* avg-tbodyaccjerkmag-std
+* avg-tbodygyromag-mean
+* avg-tbodygyromag-std
+* avg-tbodygyrojerkmag-mean
+* avg-tbodygyrojerkmag-std
+* avg-fbodyacc-mean-x
+* avg-fbodyacc-mean-y
+* avg-fbodyacc-mean-z
+* avg-fbodyacc-std-x
+* avg-fbodyacc-std-y
+* avg-fbodyacc-std-z
+* avg-fbodyacc-meanfreq-x
+* avg-fbodyacc-meanfreq-y
+* avg-fbodyacc-meanfreq-z
+* avg-fbodyaccjerk-mean-x
+* avg-fbodyaccjerk-mean-y
+* avg-fbodyaccjerk-mean-z
+* avg-fbodyaccjerk-std-x
+* avg-fbodyaccjerk-std-y
+* avg-fbodyaccjerk-std-z
+* avg-fbodyaccjerk-meanfreq-x
+* avg-fbodyaccjerk-meanfreq-y
+* avg-fbodyaccjerk-meanfreq-z
+* avg-fbodygyro-mean-x
+* avg-fbodygyro-mean-y
+* avg-fbodygyro-mean-z
+* avg-fbodygyro-std-x
+* avg-fbodygyro-std-y
+* avg-fbodygyro-std-z
+* avg-fbodygyro-meanfreq-x
+* avg-fbodygyro-meanfreq-y
+* avg-fbodygyro-meanfreq-z
+* avg-fbodyaccmag-mean
+* avg-fbodyaccmag-std
+* avg-fbodyaccmag-meanfreq
+* avg-fbodybodyaccjerkmag-mean
+* avg-fbodybodyaccjerkmag-std
+* avg-fbodybodyaccjerkmag-meanfreq
+* avg-fbodybodygyromag-mean
+* avg-fbodybodygyromag-std
+* avg-fbodybodygyromag-meanfreq
+* avg-fbodybodygyrojerkmag-mean
+* avg-fbodybodygyrojerkmag-std
+* avg-fbodybodygyrojerkmag-meanfreq
 
 ## License of the data involved
 The use of the data involved in this project requires referencing the following publication:
