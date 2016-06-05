@@ -18,8 +18,8 @@ This is the r-script which takes the data and performs the following steps:
 
 You can find more detailled documentation on how these steps are performed from the code-source.
 
-### The final tidy Data Set 'tidy_data_set.csv'
-The tidy data set produced by the 'run_analysis.R' - script, based on the above mentioned steps 1 through 5.
+### The final tidy Data Set 'data/tidy_data_set.csv'
+The final tidy data set produced by the 'run_analysis.R' - script, based on the above mentioned steps 1 through 5. It is located in the 'data'-folder, found on toplevel of this project.
 
 ### The Codebook named 'CodeBook.md'
 This is the code book that describes the variables, the data, and any transformations or work that were performed to clean up the data. It modifies and updates the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
