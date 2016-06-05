@@ -30,8 +30,7 @@
 #          to a given dataset (no checks performed, if 'id' already existing)
 addidcol <- function(x) {
   # apply rownumber to subject
-  x$id <- seq.int(nrow(x))
-  x
+  x$id <- seq.int(nrow(x));x
 }
 
 # washlabels: clean label-names, convert to lowercase, remove blanks
@@ -49,25 +48,22 @@ domerge <- function(subjFile, XFile, XLablesFile, yFile) {
   # name column
   colnames(subj) <- 'subj'
   # apply rownumber to subject
-  subj$id <- seq.int(nrow(subj))
+  subj <- addidcol(subj)
   # read X
   X <- read.table(file = XFile, header = FALSE, strip.white = TRUE)
   # read column names
   lbls <- read.table(file = XLablesFile, header = FALSE, strip.white = TRUE)
-  lbls <- lbls[,2]
-  lbls <- washlabels(lbls)
-  
-lbls
+  lbls <- washlabels(lbls[,2])
   # name columns
   colnames(X) <- lbls
   # apply rownumber to X
-  X$id <- seq.int(nrow(X))
+  X <- addidcol(X)
   # read y
   y <- read.table(file = yFile, header = FALSE, strip.white = TRUE)
   # name column
   colnames(y) <- 'activity'
   # apply rownumber to y
-  y$id <- seq.int(nrow(y))
+  y <- addidcol(y)
   # now merge subject and X by rownumber (id)
   tmp <- merge(subj, X, by.x = "id", by.y = "id")
   # now merge tmp and y by rownumber (id)
@@ -101,4 +97,26 @@ test <- domerge("./UCI HAR Dataset/test/subject_test.txt",
                 "./UCI HAR Dataset/features.txt", 
                 "./UCI HAR Dataset/test/y_test.txt")
 
-one <- merge(train, test)
+# append training- and testdata
+alldata <- rbind(train, test)
+# free memory
+rm(train, test)
+# write alldata
+write.table(alldata, file = "./data/alldata.csv", row.names = FALSE, col.names = TRUE)
+
+# 2) second step: Extract only the measurements on the mean and standard deviation for each measurement.
+# fist build vector containing the column-names having 'mean' or 'std' 
+colnames(alldata)
+# construct column-selection vector:
+# select only variables containing mean, std, and keep activity & subject
+colsel <- grep("mean|std|activity|subj", colnames(alldata), value = TRUE)
+# now build new reduced dataset with the column-selection 
+alldata <- alldata[,colsel]
+dim(alldata)
+
+
+
+# now do some cleaning tasks: convert activity to understandable factors
+one$activity <- as.factor(one$activity)
+
+write.table(one, file = "completeData.csv", row.names = FALSE, col.names = TRUE)
