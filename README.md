@@ -19,7 +19,7 @@ The script assumes, that the zip-content of the link provided at the bottom of t
 Finally, the resulting tidy dataset is stored in the 'data'-folder within a text-file named 'tidy_data_set.txt'. You can find more detailled documentation on how these steps are performed from the code-source.
 
 ### The 'data'-Folder
-The folder containing the final tidy data set named 'tidy_data_set.csv' produced by the 'run_analysis.R' - script, based on the above mentioned steps 1 through 5.
+The folder containing the final tidy data set named 'tidy_data_set.txt' produced by the 'run_analysis.R' - script, based on the above mentioned steps 1 through 5.
 
 ### The 'UCI HAR Dataset'-Folder
 This is the data this project is based on. It is publicly available using the 3rd URL provided beneath.
