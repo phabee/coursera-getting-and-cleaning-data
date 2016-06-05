@@ -86,7 +86,7 @@ if (!dir.exists(datadir)) {
   dir.create(datadir)
 }
 
-# 1) first step: merge training and test set to create one dataset
+# 1) merge training and test set to create one dataset
 train <- domerge("./UCI HAR Dataset/train/subject_train.txt", 
                  "./UCI HAR Dataset/train/X_train.txt", 
                  "./UCI HAR Dataset/features.txt", 
@@ -104,7 +104,7 @@ rm(train, test)
 # write alldata
 write.table(alldata, file = "./data/alldata.csv", row.names = FALSE, col.names = TRUE)
 
-# 2) second step: Extract only the measurements on the mean and standard deviation for each measurement.
+# 2) Extract only the measurements on the mean and standard deviation for each measurement.
 # fist build vector containing the column-names having 'mean' or 'std' 
 colnames(alldata)
 # construct column-selection vector:
@@ -114,7 +114,15 @@ colsel <- grep("mean|std|activity|subj", colnames(alldata), value = TRUE)
 alldata <- alldata[,colsel]
 dim(alldata)
 
-
+# 3) Use descriptive activity names to name the activities in the data set
+alldata$activity <- factor(alldata$activity)
+# remap values
+library(plyr)
+alldata$activity <- mapvalues(alldata$activity, from = c("1", "2", "3", "4", "5", "6"),
+                            to = c("WALKING", "WALKING_UPSTAIRS", 
+                                   "WALKING_DOWNSTAIRS", "SITTING", 
+                                   "STANDING", "LAYING"))
+# 4) Appropriately labels the data set with descriptive variable names
 
 # now do some cleaning tasks: convert activity to understandable factors
 one$activity <- as.factor(one$activity)
