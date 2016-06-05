@@ -110,6 +110,16 @@ The tidy dataset is provided in the 'data'-Folder and named 'tidy_data_set.csv'.
 
 Since the values have been aggregated and grouped by subject/activity, the labels have been extended with the 'avg'-prefix to the former original name to express, that the resulting values have been avg'ed.
 
+## The activity Labels
+The activity Labels can have one of the following values:
+
+1 WALKING
+1 WALKING_UPSTAIRS
+1 WALKING_DOWNSTAIRS
+1 SITTING
+1 STANDING
+1 LAYING
+
 ## License of the data involved
 The use of the data involved in this project requires referencing the following publication:
 
