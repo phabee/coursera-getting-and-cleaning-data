@@ -21,7 +21,9 @@ To obtain this Dataset, the following steps have been performed on the Source Da
 1.  Appropriately label the data set with descriptive variable names.
 1.  From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-You can find more detailled documentation on how these steps are performed from the source-code in the script 'run_analysis.R'.
+You can find more detailled documentation on how these steps are performed from the source-code in the script 'run_analysis.R'. 
+
+By 'appropriately label' I did the following: The original variable-names have been converted to lowercase, special-characters have been removed and commas(',') or periods('.') have been replaced by a '-'.
 
 ## The variables
 The tidy dataset is provided in the 'data'-Folder and named 'tidy_data_set.csv'. It contains the following variables:
