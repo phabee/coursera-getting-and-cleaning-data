@@ -58,12 +58,7 @@ if (!dir.exists(datadir)) {
 # 1) merge training and test set to create one dataset
 # internal function to load and merge data of either train/test set
 loadmerge <- function(subjFile, XFile, XLabFile, yFile) {
-#  subjFile <- "./UCI HAR Dataset/train/subject_train.txt"
-#    XFile <- "./UCI HAR Dataset/train/X_train.txt"
-#    XLabFile <- "./UCI HAR Dataset/features.txt"
-#    yFile <- "./UCI HAR Dataset/train/y_train.txt"
-
-    # read files into dataframes, apply name 'subject'
+  # read files into dataframes, apply name 'subject'
   subj <- read.table(file = subjFile, header = FALSE, strip.white = TRUE)
   colnames(subj) <- 'subject'
   # read X and apply colnames from feature file
@@ -120,8 +115,6 @@ alldata$activity <- mapvalues(alldata$activity, from = c("1", "2", "3", "4", "5"
 
 # 4) Appropriately labels the data set with descriptive variable names
 names(alldata) <- washlabels(names(alldata))
-# write alldata
-write.table(alldata, file = "./data/tidy_data_set_1.csv", row.names = FALSE, col.names = TRUE)
 
 # 5) From the data set in step 4, creates a second, independent tidy data set 
 #    with the average of each variable for each activity and each subject.
@@ -131,4 +124,4 @@ newdat <- alldata %>% group_by(subject, activity) %>% summarize_each(funs(mean))
 # nicely rename the columns to add 'avg'-prefix
 colnames(newdat)[3:81] <- paste0('avg-',colnames(newdat))[3:81]
 # write alldata
-write.table(newdat, file = "./data/tidy_data_set_2.csv", row.names = FALSE, col.names = TRUE)
+write.table(newdat, file = "./data/tidy_data_set.csv", row.names = FALSE, col.names = TRUE)
