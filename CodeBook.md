@@ -11,7 +11,12 @@ Further information is available here:
 http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.names
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-This codepage document extends the codepage document contained in the README.txt in the above mentioned zip. License information is provided at the end of this document.
+This codepage document extends the codepage document contained in the README.txt in the above mentioned zip. 
+
+- Features are normalized and bounded within [-1,1].
+- Each feature vector is a row on the text file.
+
+License information is provided at the end of this document.
 
 ## The Processing Steps
 To obtain this Dataset, the following steps have been performed on the Source Data provided above:
