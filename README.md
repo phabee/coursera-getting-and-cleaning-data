@@ -1,4 +1,4 @@
-# About the Coursera Getting-And-Cleaning Data Project
+# Coursera Getting-And-Cleaning Data Project
 This project is related to the Coursera Course for the specialization in Data Science at Hopkins University and is the final assignment within the 3rd course 'Getting-And-Cleaning Data' out of ten to achieve the Data Science specialization. See the file project_requirements.md to get the original description of requirements related to this project.
 
 ## Purpose of this README.md
